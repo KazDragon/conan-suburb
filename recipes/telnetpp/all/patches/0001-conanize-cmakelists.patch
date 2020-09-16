@@ -1,0 +1,69 @@
+--- CMakeLists.txt	2020-09-16 21:29:54.716320607 +0200
++++ CMakeListsConan.txt	2020-09-16 21:31:03.364865491 +0200
+@@ -27,22 +27,6 @@
+ # The required C++ Standard for Telnet++ is C++14.
+ set(CMAKE_CXX_STANDARD 14)
+ 
+-# Telnet++ requires at least Boost 1.69.
+-find_package(Boost 1.69.0 REQUIRED COMPONENTS container)
+-
+-# Telnet++ requires exactly version 0.34 of gsl-lite
+-find_package(gsl-lite 0.34.0 EXACT REQUIRED)
+-
+-# If we are building with ZLib, then we require the ZLib library
+-if (${TELNETPP_WITH_ZLIB})
+-    find_package(ZLIB REQUIRED)
+-endif()
+-
+-# If we are building with tests, then we require the GTest library
+-if (${TELNETPP_WITH_TESTS})
+-    find_package(GTest REQUIRED)
+-endif()
+-
+ # When building shared objects, etc., we only want to export certain symbols.
+ # Therefore, we need to generate a header suitable for declaring which
+ # symbols should be included.
+@@ -157,15 +141,14 @@
+ 
+ target_link_libraries(telnetpp
+     PUBLIC
+-        Boost::boost
+-        Boost::container
+-        gsl::gsl-lite
++        CONAN_PKG::gsl-lite
++        CONAN_PKG::boost
+ )
+ 
+ if (TELNETPP_WITH_ZLIB)
+     target_link_libraries(telnetpp
+         PRIVATE
+-             ZLIB::ZLIB
++             CONAN_PKG::zlib
+     )
+ endif()
+ 
+@@ -178,6 +161,7 @@
+ 
+ target_include_directories(telnetpp
+     PUBLIC
++        ${Boost_INCLUDE_DIRS}
+         $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+         $<INSTALL_INTERFACE:include/telnetpp-${TELNETPP_VERSION}>
+ )
+@@ -282,14 +266,13 @@
+ target_link_libraries(telnetpp_tester
+     PRIVATE
+         telnetpp
+-        GTest::GTest
+-        GTest::Main
++        CONAN_PKG::gtest
+ )
+ 
+ if (TELNETPP_WITH_ZLIB)
+     target_link_libraries(telnetpp_tester
+         PRIVATE
+-            ZLIB::ZLIB
++            CONAN_PKG::zlib
+     )
+ endif()
+ 
