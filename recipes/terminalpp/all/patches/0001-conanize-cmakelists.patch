@@ -1,0 +1,44 @@
+--- CMakeLists.txt	2020-09-17 07:57:55.087324860 +0200
++++ CMakeListsConan.txt	2020-09-17 07:59:23.977223332 +0200
+@@ -23,17 +23,6 @@
+ # The required C++ Standard for Terminal++ is C++14.
+ set(CMAKE_CXX_STANDARD 14)
+ 
+-# Terminal++ requires at least Boost 1.69
+-find_package(Boost 1.69.0 REQUIRED)
+-
+-# Terminal++ requires libfmt
+-find_package(fmt 5.3 REQUIRED)
+-
+-# If we are building with tests, then we require the GTest library
+-if (${TERMINALPP_WITH_TESTS})
+-    find_package(GTest REQUIRED)
+-endif()
+-
+ # When building shared objects, etc., we only want to export certain
+ # symbols.  Therefore, we need to generate a header suitable for declaring
+ # which symbols should be included.
+@@ -141,9 +130,9 @@
+ 
+ target_link_libraries(terminalpp
+     PUBLIC
+-        Boost::boost
++        CONAN_PKG::boost
+     PRIVATE
+-        fmt::fmt
++        CONAN_PKG::fmt
+ )
+ 
+ target_include_directories(terminalpp
+@@ -255,9 +244,8 @@
+ 
+ target_link_libraries(terminalpp_tester
+     terminalpp
+-    fmt::fmt
+-    GTest::GTest
+-    GTest::Main
++    CONAN_PKG::fmt
++    CONAN_PKG::gtest
+ )
+ 
+ add_test(terminalpp_test terminalpp_tester)
