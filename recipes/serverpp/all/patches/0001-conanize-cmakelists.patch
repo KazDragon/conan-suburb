@@ -1,0 +1,26 @@
+--- CMakeLists.txt	2020-09-17 15:10:53.212056640 +0200
++++ CMakeListsConan.txt	2020-09-17 15:17:10.650468385 +0200
+@@ -21,12 +21,6 @@
+ # The required C++ Standard for Server++ is C++14.
+ set(CMAKE_CXX_STANDARD 14)
+ 
+-# Telnet++ requires at least Boost 1.69.
+-find_package(Boost 1.69.0 REQUIRED COMPONENTS container)
+-
+-# Telnet++ requires exactly version 0.34 of gsl-lite
+-find_package(gsl-lite 0.34.0 EXACT REQUIRED)
+-
+ # When building shared objects, etc., we only want to export certain symbols.
+ # Therefore, we need to generate a header suitable for declaring which
+ # symbols should be included.
+@@ -58,8 +52,8 @@
+ 
+ target_link_libraries(serverpp
+     PUBLIC
+-        Boost::boost
+-        gsl::gsl-lite
++        CONAN_PKG::gsl-lite
++        CONAN_PKG::boost
+ )
+ 
+ set_target_properties(serverpp

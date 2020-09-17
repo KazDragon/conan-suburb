@@ -1,0 +1,9 @@
+sources:
+  "0.0.6":
+    url: "https://github.com/KazDragon/serverpp/archive/v0.0.6.tar.gz"
+    sha256: "84c76de55dc7d728d06f6a49c4e3375dbf350c31cdfdb98f6a2d82a39ed27ea4"
+patches:
+  "0.0.6":
+    - base_path: source_subfolder
+      patch_file: patches/0001-conanize-cmakelists.patch
+
