@@ -1,0 +1,9 @@
+sources:
+  "0.3.8":
+    url: "https://github.com/KazDragon/munin/archive/v0.3.8.tar.gz"
+    sha256: "050022b0f3a1e925bb95e56f1019f93180f7d103bd42b08175c816662fdca2c8"
+patches:
+  "0.3.8":
+    - base_path: source_subfolder
+      patch_file: patches/0001-conanize-cmakelists.patch
+
