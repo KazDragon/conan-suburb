@@ -2,6 +2,9 @@ sources:
   "0.0.6":
     url: "https://github.com/KazDragon/serverpp/archive/v0.0.6.tar.gz"
     sha256: "84c76de55dc7d728d06f6a49c4e3375dbf350c31cdfdb98f6a2d82a39ed27ea4"
+  "0.0.7":
+    url: "https://github.com/KazDragon/serverpp/archive/v0.0.7.tar.gz"
+    sha256: "782889c9709d66a8103eb4646419422b8819e1849bdd90b3b3c28751195fde2d"
 patches:
   "0.0.6":
     - base_path: source_subfolder

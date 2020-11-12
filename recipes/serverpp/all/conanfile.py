@@ -50,6 +50,7 @@ class ServerppConan(ConanFile):
         self._cmake.definitions["SERVERPP_COVERAGE"] = self.options.coverage
         self._cmake.definitions["SERVERPP_SANITIZE"] = self.options.sanitize
         self._cmake.definitions["SERVERPP_WITH_TESTS"] = self.options.withTests
+        self._cmake.definitions["SERVERPP_USE_CONAN"] = True
         self._cmake.configure(build_folder=self._build_subfolder)
         return self._cmake
 
