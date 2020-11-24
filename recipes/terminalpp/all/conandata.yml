@@ -2,6 +2,9 @@ sources:
   "1.4.1":
     url: "https://github.com/KazDragon/terminalpp/archive/v1.4.1.tar.gz"
     sha256: "7329dfc0934da320246f28c403f03ad768323c29979cd09420fc1c98506ff11f"
+  "1.4.2":
+    url: "https://github.com/KazDragon/terminalpp/archive/v1.4.2.tar.gz"
+    sha256: "5e36803dc35d9fd7ece064ff438510e3e940641d83157f9870cf01049c6db86c"
 patches:
   "1.4.1":
     - base_path: source_subfolder

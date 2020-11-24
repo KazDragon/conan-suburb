@@ -50,6 +50,7 @@ class TerminaltppConan(ConanFile):
         self._cmake.definitions["TERMINALPP_COVERAGE"] = self.options.coverage
         self._cmake.definitions["TERMINALPP_SANITIZE"] = self.options.sanitize
         self._cmake.definitions["TERMINALPP_WITH_TESTS"] = self.options.withTests
+        self._cmake.definitions["TERMINALPP_USE_CONAN"] = True
         self._cmake.configure(build_folder=self._build_subfolder)
         return self._cmake
 
