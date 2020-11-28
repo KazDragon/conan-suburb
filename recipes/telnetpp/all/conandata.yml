@@ -2,6 +2,9 @@ sources:
   "2.1.1":
     url: "https://github.com/KazDragon/telnetpp/archive/v2.1.1.tar.gz"
     sha256: "c0dd54947bcdd2e5e1a5a42f458336b8ec5a4652b2c8af8969cbe3a9502b4527"
+  "2.1.2":
+    url: "https://github.com/KazDragon/telnetpp/archive/v2.1.2.tar.gz"
+    sha256: "e6e0691a1d6b81211883130a2259b1784b5f51cab30bc71f72b991fb64aec50e"
 patches:
   "2.1.1":
     - base_path: source_subfolder
